@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  mongodbtests:
+    image: ${DOCKER_REGISTRY}mongodbtests
+    build:
+      context: .
+      dockerfile: MongoDbTests/Dockerfile
+    depends_on:
+      - dotnetcore-mongo.db
+
+  dotnetcore-mongo.db:
+    image: mongo
+    container_name: dotnetcore-mongo.db
+    ports:
+      - "5001:27017"
