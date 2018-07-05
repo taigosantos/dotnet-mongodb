@@ -3,44 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbTests", "MongoDbTests\MongoDbTests.csproj", "{6316960F-1CE1-4A9B-A4EB-F624F1808548}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbTests.Api", "MongoDbTests.Api\MongoDbTests.Api.csproj", "{7F99C78E-0564-44E8-8BE5-624DA14D5303}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5DB0D34A-496B-4410-AAE6-5847FB2D4FDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Debug|x64.Build.0 = Debug|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Debug|x86.Build.0 = Debug|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Release|x64.ActiveCfg = Release|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Release|x64.Build.0 = Release|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Release|x86.ActiveCfg = Release|Any CPU
-		{6316960F-1CE1-4A9B-A4EB-F624F1808548}.Release|x86.Build.0 = Release|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Debug|x64.Build.0 = Debug|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Debug|x86.Build.0 = Debug|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Release|x64.ActiveCfg = Release|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Release|x64.Build.0 = Release|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Release|x86.ActiveCfg = Release|Any CPU
-		{734C5E8C-94A8-47DB-8FE2-2581B5BE91E2}.Release|x86.Build.0 = Release|Any CPU
+		{7F99C78E-0564-44E8-8BE5-624DA14D5303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F99C78E-0564-44E8-8BE5-624DA14D5303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F99C78E-0564-44E8-8BE5-624DA14D5303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F99C78E-0564-44E8-8BE5-624DA14D5303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DB0D34A-496B-4410-AAE6-5847FB2D4FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DB0D34A-496B-4410-AAE6-5847FB2D4FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DB0D34A-496B-4410-AAE6-5847FB2D4FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DB0D34A-496B-4410-AAE6-5847FB2D4FDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
