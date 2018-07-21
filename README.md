@@ -1,2 +1,3 @@
-# dotnet-mongodb
-Integração entre dotnet e mongodb
+# dotnet-core-architecture
+Projeto de arquitetura para o Framework .NET Core
+ 
