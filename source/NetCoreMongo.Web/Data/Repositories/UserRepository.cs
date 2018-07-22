@@ -31,36 +31,27 @@ namespace AspNetCoreMongoDb.Web.Data.Repositories
 
         public IEnumerable<UserItem> List()
         {
-            var userItem = _usersContext
-                .Users
-                .AsQueryable()
-                .Join(_usersContext.Professions.AsQueryable(), 
-                    u => u.ProfessionId, 
-                    p => p.Id, 
-                    (u, p) => new
-                    {
-                        u.Id,
-                        u.Name,
-                        u.CountryId,
-                        Profession = p.Desription
-                    })
-                .Join(_usersContext.Countries.AsQueryable(),
-                    u => u.CountryId,
-                    c => c.Id,
-                    (u, c) => new
-                    {
-                        u.Id,
-                        u.Name,
-                        u.Profession,
-                        Country = c.Desription
-                    })
+            var query = from u in _usersContext.Users.AsQueryable()
+                        join p in _usersContext.Professions.AsQueryable() on u.ProfessionId equals p.Id into profession
+                        join c in _usersContext.Countries.AsQueryable() on u.CountryId equals c.Id into country
+                        select new
+                        {
+                            u.Id,
+                            u.Name,
+                            u.CountryId,
+                            Profession = profession.First(),
+                            Country = country.First()
+                        };
+
+            var userItem = query
                 .Select(u => new UserItem
                 {
                     Id = u.Id,
                     Name = u.Name,
-                    Profission = u.Profession,
-                    Country = u.Country
-                });
+                    Profission = u.Profession.Desription,
+                    Country = u.Country.Desription
+                })
+                .ToList();
 
             return userItem;
         }

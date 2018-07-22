@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AspNetCoreMongoDb.Web.Domain.Professions;
 
 namespace AspNetCoreMongoDb.Web.Domain.Users
 {
