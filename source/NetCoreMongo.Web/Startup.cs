@@ -1,24 +1,34 @@
-﻿using AspNetCoreMongoDb.Web.Data.Context;
-using AspNetCoreMongoDb.Web.Data.Mappings;
-using AspNetCoreMongoDb.Web.Data.Repositories;
-using AspNetCoreMongoDb.Web.Data.Seed;
-using AspNetCoreMongoDb.Web.Domain.Users.Repository;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
+using NetCoreMongo.Web.Data.Context;
+using NetCoreMongo.Web.Data.Mappings;
+using NetCoreMongo.Web.Data.Repositories;
+using NetCoreMongo.Web.Data.Seed;
+using NetCoreMongo.Web.Domain.Users.Repository;
 
-namespace AspNetCoreMongoDb.Web
+namespace NetCoreMongo.Web
 {
     public class Startup
     {
+        #region Constructors
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        #endregion
+
+        #region Properties
+
         public IConfiguration Configuration { get; }
+
+        #endregion
+
+        #region Public Methods
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -34,6 +44,7 @@ namespace AspNetCoreMongoDb.Web
 
             // Mongo Mappings
 
+            EntityMappings.RegisterEntityMappings();
             UsersMappings.RegisterUsersMappings();
             ProfessionsMappings.RegisterProfessionsMappings();
             CountriesMappings.RegisterCountriesMappings();
@@ -55,5 +66,7 @@ namespace AspNetCoreMongoDb.Web
 
             app.UseMvc();
         }
+
+        #endregion
     }
 }

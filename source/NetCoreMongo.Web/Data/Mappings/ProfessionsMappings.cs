@@ -1,10 +1,12 @@
-﻿using AspNetCoreMongoDb.Web.Domain.Professions;
-using MongoDB.Bson.Serialization;
+﻿using MongoDB.Bson.Serialization;
+using NetCoreMongo.Web.Domain.Professions;
 
-namespace AspNetCoreMongoDb.Web.Data.Mappings
+namespace NetCoreMongo.Web.Data.Mappings
 {
     public static class ProfessionsMappings
     {
+        #region Public Methods
+
         public static void RegisterProfessionsMappings()
         {
             BsonClassMap.RegisterClassMap<Profession>(map =>
@@ -12,5 +14,7 @@ namespace AspNetCoreMongoDb.Web.Data.Mappings
                 map.AutoMap();
             });
         }
+
+        #endregion
     }
 }

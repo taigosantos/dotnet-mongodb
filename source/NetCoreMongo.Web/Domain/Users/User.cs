@@ -1,45 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using AspNetCoreMongoDb.Web.Domain.Professions;
+﻿using System.Collections.Generic;
+using NetCoreMongo.Web.Shared;
 
-namespace AspNetCoreMongoDb.Web.Domain.Users
+namespace NetCoreMongo.Web.Domain.Users
 {
-    public class User
+    public class User : Entity
     {
-        private List<UserEmail> _emails;
+        #region Fields
 
-        public User(string name, Guid professionId, Guid countryId, Guid? id = null)
-            : this()
+        private List<UserEmail> _emails = new List<UserEmail>();
+
+        #endregion
+
+        #region Constructors
+
+        public User(string name, string professionId, string countryId, string id = null)
+            : base(id)
         {
-            Id = id ?? Guid.NewGuid();
             Name = name;
             ProfessionId = professionId;
             CountryId = countryId;
         }
 
-        public User()
-        {
-            _emails = new List<UserEmail>();
-        }
+        #endregion
 
-        public Guid Id { get; private set; }
+        #region Properties
+
         public string Name { get; private set; }
-        public Guid ProfessionId { get; private set; }
-        public Guid CountryId { get; private set; }
+        public string ProfessionId { get; private set; }
+        public string CountryId { get; private set; }
         public IReadOnlyCollection<UserEmail> Emails => _emails.AsReadOnly();
 
-        public void Update(string name, Guid professionId, Guid countryId)
+        #endregion
+
+        #region Public Methods
+
+        public void Update(string name, string professionId, string countryId)
         {
             Name = name;
             ProfessionId = professionId;
             CountryId = countryId;
         }
 
-        public void AddEmail(string address, Guid? id = null)
+        public void AddEmail(string address, string id = null)
         {
             var userEmail = new UserEmail(address, id);
 
             _emails.Add(userEmail);
         }
+
+        #endregion
     }
 }

@@ -1,19 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using NetCoreMongo.Web.Shared;
 
-namespace AspNetCoreMongoDb.Web.Domain.Professions
+namespace NetCoreMongo.Web.Domain.Professions
 {
-    public class Profession
+    public class Profession : Entity
     {
-        public Profession(string desription, Guid? id = null)
+        #region Constructors
+
+        public Profession(string description, string id = null)
+            : base(id)
         {
-            Id = id ?? Guid.NewGuid();
-            Desription = desription;
+            Description = description;
         }
 
-        public Guid Id { get; private set; }
-        public string Desription { get; private set; }
+        #endregion
+
+        #region Properties
+
+        public string Description { get; private set; }
+
+        #endregion
     }
 }

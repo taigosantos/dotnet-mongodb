@@ -1,21 +1,32 @@
-﻿using System;
+﻿using NetCoreMongo.Web.Shared;
 
-namespace AspNetCoreMongoDb.Web.Domain.Users
+namespace NetCoreMongo.Web.Domain.Users
 {
-    public class UserEmail
+    public class UserEmail : Entity
     {
-        public UserEmail(string address, Guid? id = null)
+        #region Constructors
+
+        public UserEmail(string address, string id = null)
+            : base(id)
         {
-            Id = id ?? Guid.NewGuid();
             Address = address;
         }
 
-        public Guid Id { get; private set; }
+        #endregion
+
+        #region Properties
+
         public string Address { get; private set; }
+
+        #endregion
+
+        #region Public Methods
 
         public void Update(string address)
         {
             Address = address;
         }
+
+        #endregion
     }
 }

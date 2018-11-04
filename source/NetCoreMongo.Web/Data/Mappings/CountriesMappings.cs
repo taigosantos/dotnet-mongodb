@@ -1,10 +1,12 @@
-﻿using AspNetCoreMongoDb.Web.Domain.Countries;
-using MongoDB.Bson.Serialization;
+﻿using MongoDB.Bson.Serialization;
+using NetCoreMongo.Web.Domain.Countries;
 
-namespace AspNetCoreMongoDb.Web.Data.Mappings
+namespace NetCoreMongo.Web.Data.Mappings
 {
     public static class CountriesMappings
     {
+        #region Public Methods
+
         public static void RegisterCountriesMappings()
         {
             BsonClassMap.RegisterClassMap<Country>(map =>
@@ -12,5 +14,7 @@ namespace AspNetCoreMongoDb.Web.Data.Mappings
                 map.AutoMap();
             });
         }
+
+        #endregion
     }
 }

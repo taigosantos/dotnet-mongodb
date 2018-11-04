@@ -1,16 +1,23 @@
-﻿using System;
+﻿using NetCoreMongo.Web.Shared;
 
-namespace AspNetCoreMongoDb.Web.Domain.Countries
+namespace NetCoreMongo.Web.Domain.Countries
 {
-    public class Country
+    public class Country : Entity
     {
-        public Country(string desription, Guid? id = null)
+        #region Constructors
+
+        public Country(string description, string id = null)
+            : base(id)
         {
-            Id = id ?? Guid.NewGuid();
-            Desription = desription;
+            Description = description;
         }
 
-        public Guid Id { get; private set; }
-        public string Desription { get; private set; }
+        #endregion
+
+        #region Properties
+
+        public string Description { get; private set; }
+
+        #endregion
     }
 }

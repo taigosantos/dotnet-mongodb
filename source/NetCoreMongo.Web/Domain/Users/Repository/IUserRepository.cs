@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using AspNetCoreMongoDb.Web.Domain.Users;
-using AspNetCoreMongoDb.Web.Domain.Users.Models;
+﻿using System.Collections.Generic;
+using NetCoreMongo.Web.Domain.Users.Models;
 
-namespace AspNetCoreMongoDb.Web.Domain.Users.Repository
+namespace NetCoreMongo.Web.Domain.Users.Repository
 {
     public interface IUserRepository
     {
+        #region Public Methods
+
         void CreateUser(User user);
-        User GetById(Guid userId);
+        User GetById(string userId);
         IEnumerable<UserItem> List();
+
+        #endregion
     }
 }

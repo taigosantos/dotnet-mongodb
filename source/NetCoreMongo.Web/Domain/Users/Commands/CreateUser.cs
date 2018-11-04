@@ -1,19 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using AspNetCoreMongoDb.Web.Domain.Users.Models;
+﻿using System.Collections.Generic;
+using NetCoreMongo.Web.Domain.Users.Models;
 
-namespace AspNetCoreMongoDb.Web.Domain.Users.Commands
+namespace NetCoreMongo.Web.Domain.Users.Commands
 {
     public class CreateUser
     {
+        #region Constructors
+
         public CreateUser()
         {
             Emails = new List<UserEmailItem>();
         }
 
+        #endregion
+
+        #region Properties
+
         public string Name { get; set; }
-        public Guid ProfessionId { get; set; }
+        public string ProfessionId { get; set; }
         public IEnumerable<UserEmailItem> Emails { get; }
-        public Guid CountryId { get; internal set; }
+        public string CountryId { get; internal set; }
+
+        #endregion
     }
 }

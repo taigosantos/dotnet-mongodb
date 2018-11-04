@@ -1,20 +1,29 @@
-﻿using System;
-using AspNetCoreMongoDb.Web.Domain.Users;
-using AspNetCoreMongoDb.Web.Domain.Users.Commands;
-using AspNetCoreMongoDb.Web.Domain.Users.Repository;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using NetCoreMongo.Web.Domain.Users;
+using NetCoreMongo.Web.Domain.Users.Commands;
+using NetCoreMongo.Web.Domain.Users.Repository;
 
-namespace AspNetCoreMongoDb.Web.Controllers
+namespace NetCoreMongo.Web.Controllers
 {
     [Route("api/users")]
     public class UsersController : Controller
     {
+        #region Fields
+
         private readonly IUserRepository _userRepository;
+
+        #endregion
+
+        #region Constructors
 
         public UsersController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
+
+        #endregion
+
+        #region Public Methods
 
         [HttpGet]
         public IActionResult Get()
@@ -29,7 +38,7 @@ namespace AspNetCoreMongoDb.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]CreateUser createUser)
+        public IActionResult Post([FromBody] CreateUser createUser)
         {
             // Mapping
 
@@ -49,8 +58,8 @@ namespace AspNetCoreMongoDb.Web.Controllers
             return Created($"api/users/{user.Id}", user);
         }
 
-        [HttpGet("{userId:guid}")]
-        public IActionResult Get(Guid userId)
+        [HttpGet("{userId}")]
+        public IActionResult Get(string userId)
         {
             // Get from repository
 
@@ -59,11 +68,15 @@ namespace AspNetCoreMongoDb.Web.Controllers
             // Return 'Not Found' if null
 
             if (user == null)
+            {
                 return NotFound();
+            }
 
             // Return 'Ok' with the user
 
             return Ok(user);
         }
+
+        #endregion
     }
 }
