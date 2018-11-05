@@ -28,7 +28,7 @@ namespace NetCoreMongo.Web.Domain.Users
         public string Name { get; private set; }
         public string ProfessionId { get; private set; }
         public string CountryId { get; private set; }
-        public IReadOnlyCollection<UserEmail> Emails => _emails.AsReadOnly();
+        public IReadOnlyList<UserEmail> Emails => _emails.AsReadOnly();
 
         #endregion
 
