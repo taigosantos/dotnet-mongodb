@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LinqSpecs" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="MongoDB.Driver" Version="2.6.1" />
   </ItemGroup>
