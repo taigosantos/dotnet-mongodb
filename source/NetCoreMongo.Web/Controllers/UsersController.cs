@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NetCoreMongo.Web.Domain.Users;
 using NetCoreMongo.Web.Domain.Users.Commands;
+using NetCoreMongo.Web.Domain.Users.Models;
 using NetCoreMongo.Web.Domain.Users.Repository;
+using NetCoreMongo.Web.Domain.Users.Specifications;
 
 namespace NetCoreMongo.Web.Controllers
 {
@@ -26,11 +28,11 @@ namespace NetCoreMongo.Web.Controllers
         #region Public Methods
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(UserParameters parameters)
         {
             // Get from repository
 
-            var usersList = _userRepository.List();
+            var usersList = _userRepository.List(parameters.ToExpression());
 
             // Return 'Ok' with the userList
 

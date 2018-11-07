@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
+using LinqSpecs;
+using NetCoreMongo.Web.Domain.Users.Specifications;
 using NetCoreMongo.Web.Shared;
 
 namespace NetCoreMongo.Web.Domain.Users.Models
@@ -16,23 +18,20 @@ namespace NetCoreMongo.Web.Domain.Users.Models
 
         #region Public Methods
 
-        public Expression<Func<User, bool>> ToExpression()
+        public Expression<Func<UserQuery, bool>> ToExpression()
         {
+            Specification<UserQuery> query = new TrueSpecification<UserQuery>();
 
-            //if (!string.IsNullOrWhiteSpace(Query))
-            //{
-            //    predicate = predicate.And(p =>
-            //        p.Identification.Contains(Query) ||
-            //        p.Email.Contains(Query) ||
-            //        p.Name.ToLower().Contains(Query));
-            //}
+            if (!string.IsNullOrWhiteSpace(CountryId))
+            {
+                query &= new UsersFromCountry(CountryId);
+            }
 
-            //if (EmpresaId.HasValue)
-            //{
-            //    predicate = predicate.And(p => p.EmpresaId == EmpresaId.Value);
-            //}
-
-            return x => true;
+            if (!string.IsNullOrWhiteSpace(ProfessionId))
+            {
+                query &= new UsersFromProfession(ProfessionId);
+            }
+            return query;
         }
 
         #endregion

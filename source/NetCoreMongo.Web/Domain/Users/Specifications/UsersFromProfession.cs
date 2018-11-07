@@ -8,18 +8,18 @@ using NetCoreMongo.Web.Domain.Users.Models;
 
 namespace NetCoreMongo.Web.Domain.Users.Specifications
 {
-    public class UsersFromCountry : Specification<UserQuery>
+    public class UsersFromProfession : Specification<UserQuery>
     {
-        private readonly string _countryId;
+        private readonly string _professionId;
 
-        public UsersFromCountry(string countryId)
+        public UsersFromProfession(string professionId)
         {
-            _countryId = countryId;
+            _professionId = professionId;
         }
 
         public override Expression<Func<UserQuery, bool>> ToExpression()
         {
-            return user => user.Country.Id == _countryId;
+            return user => user.Profession.Id == _professionId;
         }
     }
 }

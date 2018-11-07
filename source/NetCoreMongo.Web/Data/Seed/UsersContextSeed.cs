@@ -42,7 +42,7 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 1
 
             var user1 = new User(
-                professionId: professions[0].Id,
+                professionId: professions[1].Id,
                 countryId: countries[0].Id,
                 name: "Amauri Santos"
             );

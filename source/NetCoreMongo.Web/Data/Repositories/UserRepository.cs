@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using MongoDB.Driver;
 using NetCoreMongo.Web.Data.Context;
 using NetCoreMongo.Web.Domain.Users;
@@ -38,21 +40,21 @@ namespace NetCoreMongo.Web.Data.Repositories
             return user;
         }
 
-        public IEnumerable<UserItem> List()
+        public IEnumerable<UserItem> List(Expression<Func<UserQuery, bool>> predicate)
         {
             var query = from u in _usersContext.Users.AsQueryable()
                 join p in _usersContext.Professions.AsQueryable() on u.ProfessionId equals p.Id into profession
                 join c in _usersContext.Countries.AsQueryable() on u.CountryId equals c.Id into country
-                select new
+                select new UserQuery
                 {
-                    u.Id,
-                    u.Name,
-                    u.CountryId,
+                    Id = u.Id,
+                    Name = u.Name,
                     Profession = profession.First(),
                     Country = country.First()
                 };
 
             var userItem = query
+                .Where(predicate)
                 .Select(u => new UserItem
                 {
                     Id = u.Id,

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using NetCoreMongo.Web.Domain.Users.Models;
 
 namespace NetCoreMongo.Web.Domain.Users.Repository
@@ -9,7 +11,7 @@ namespace NetCoreMongo.Web.Domain.Users.Repository
 
         void CreateUser(User user);
         User GetById(string userId);
-        IEnumerable<UserItem> List();
+        IEnumerable<UserItem> List(Expression<Func<UserQuery, bool>> predicate);
 
         #endregion
     }
