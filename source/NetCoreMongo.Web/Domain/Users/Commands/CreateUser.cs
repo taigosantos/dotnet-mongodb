@@ -18,8 +18,10 @@ namespace NetCoreMongo.Web.Domain.Users.Commands
 
         public string Name { get; set; }
         public string ProfessionId { get; set; }
-        public IEnumerable<UserEmailItem> Emails { get; }
+        public string Profession { get; set; }
         public string CountryId { get; internal set; }
+        public string Country { get; set; }
+        public IEnumerable<UserEmailItem> Emails { get; }
 
         #endregion
     }

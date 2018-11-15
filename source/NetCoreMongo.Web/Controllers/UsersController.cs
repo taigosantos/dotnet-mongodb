@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NetCoreMongo.Web.Domain.Countries;
+using NetCoreMongo.Web.Domain.Professions;
 using NetCoreMongo.Web.Domain.Users;
 using NetCoreMongo.Web.Domain.Users.Commands;
 using NetCoreMongo.Web.Domain.Users.Models;
@@ -44,7 +46,17 @@ namespace NetCoreMongo.Web.Controllers
         {
             // Mapping
 
-            var user = new User(createUser.Name, createUser.ProfessionId, createUser.CountryId);
+            var user = new User(
+                name: createUser.Name,
+                profession: new Profession(
+                    id: createUser.ProfessionId,
+                    description: createUser.Profession
+                    ), 
+                country: new Country(
+                    id: createUser.CountryId,
+                    description: createUser.Country
+                    )
+                );
 
             foreach (var email in createUser.Emails)
             {

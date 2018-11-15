@@ -11,7 +11,7 @@ namespace NetCoreMongo.Web.Domain.Users.Repository
 
         void CreateUser(User user);
         User GetById(string userId);
-        IEnumerable<UserItem> List(Expression<Func<UserQuery, bool>> predicate);
+        IEnumerable<UserItem> List(Expression<Func<User, bool>> predicate);
 
         #endregion
     }

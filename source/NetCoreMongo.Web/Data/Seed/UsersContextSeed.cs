@@ -42,8 +42,8 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 1
 
             var user1 = new User(
-                professionId: professions[1].Id,
-                countryId: countries[0].Id,
+                profession: professions[1],
+                country: countries[0],
                 name: "Amauri Santos"
             );
 
@@ -55,8 +55,8 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 2
 
             var user2 = new User(
-                professionId: professions[0].Id,
-                countryId: countries[0].Id,
+                profession: professions[0],
+                country: countries[0],
                 name: "Alan Santos"
             );
 
@@ -65,8 +65,8 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 3
 
             var user3 = new User(
-                professionId: professions[1].Id,
-                countryId: countries[1].Id,
+                profession: professions[1],
+                country: countries[1],
                 name: "Roberto Justo"
             );
 
@@ -75,13 +75,24 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 4
 
             var user4 = new User(
-                professionId: professions[2].Id,
-                countryId: countries[1].Id,
+                profession: professions[2],
+                country: countries[1],
                 name: "Josi Reis"
             );
 
             usersList.Add(user4);
 
+            // USER 5
+
+            var user5 = new User(
+                profession: professions[2],
+                country: countries[1],
+                name: "Removed User"
+            );
+
+            user5.Remove();
+
+            usersList.Add(user5);
 
             return usersList;
         }

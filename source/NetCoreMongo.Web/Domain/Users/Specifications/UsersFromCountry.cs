@@ -8,7 +8,7 @@ using NetCoreMongo.Web.Domain.Users.Models;
 
 namespace NetCoreMongo.Web.Domain.Users.Specifications
 {
-    public class UsersFromCountry : Specification<UserQuery>
+    public class UsersFromCountry : Specification<User>
     {
         private readonly string _countryId;
 
@@ -17,7 +17,7 @@ namespace NetCoreMongo.Web.Domain.Users.Specifications
             _countryId = countryId;
         }
 
-        public override Expression<Func<UserQuery, bool>> ToExpression()
+        public override Expression<Func<User, bool>> ToExpression()
         {
             return user => user.Country.Id == _countryId;
         }

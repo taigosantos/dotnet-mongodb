@@ -18,9 +18,9 @@ namespace NetCoreMongo.Web.Domain.Users.Models
 
         #region Public Methods
 
-        public Expression<Func<UserQuery, bool>> ToExpression()
+        public Expression<Func<User, bool>> ToExpression()
         {
-            Specification<UserQuery> query = new TrueSpecification<UserQuery>();
+            Specification<User> query = new TrueSpecification<User>();
 
             if (!string.IsNullOrWhiteSpace(CountryId))
             {

@@ -12,6 +12,12 @@ namespace NetCoreMongo.Web.Shared
             Id = id ?? Identity.NewId();
         }
 
-        public string Id { get; set; }
+        public string Id { get; private set; }
+        public bool IsRemoved { get; private set; }
+
+        public void Remove()
+        {
+            IsRemoved = true;
+        }
     }
 }
