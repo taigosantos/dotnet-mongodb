@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using NetCoreMongo.Web.Domain.Countries;
 using NetCoreMongo.Web.Domain.Professions;
 using NetCoreMongo.Web.Domain.Users;
@@ -30,11 +31,11 @@ namespace NetCoreMongo.Web.Controllers
         #region Public Methods
 
         [HttpGet]
-        public IActionResult Get(UserParameters parameters)
+        public async Task<IActionResult> FindUsers(UserParameters parameters)
         {
             // Get from repository
 
-            var usersList = _userRepository.List(parameters.ToExpression());
+            var usersList = await _userRepository.Find(parameters.ToExpression());
 
             // Return 'Ok' with the userList
 
@@ -42,7 +43,7 @@ namespace NetCoreMongo.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CreateUser createUser)
+        public async Task<IActionResult> CreateUser([FromBody] CreateUser createUser)
         {
             // Mapping
 
@@ -65,7 +66,7 @@ namespace NetCoreMongo.Web.Controllers
 
             // Create in repository
 
-            _userRepository.CreateUser(user);
+            await _userRepository.CreateUser(user);
 
             // Return Created
 
@@ -73,11 +74,11 @@ namespace NetCoreMongo.Web.Controllers
         }
 
         [HttpGet("{userId}")]
-        public IActionResult Get(string userId)
+        public async Task<IActionResult> GetUserById(string userId)
         {
             // Get from repository
 
-            var user = _userRepository.GetById(userId);
+            var user = await _userRepository.GetById(userId);
 
             // Return 'Not Found' if null
 

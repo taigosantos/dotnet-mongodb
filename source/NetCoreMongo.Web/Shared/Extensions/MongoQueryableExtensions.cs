@@ -5,10 +5,10 @@ namespace NetCoreMongo.Web.Shared.Extensions
 {
     public static class MongoQueryableExtensions
     {
-        public static IMongoQueryable<T> ActiveRegisters<T>(this IMongoQueryable<T> queriable)
+        public static IMongoQueryable<T> ActiveRegisters<T>(this IMongoQueryable<T> queryable)
             where T : Entity
         {
-            return queriable.Where(new ActiveRegisters<T>());
+            return queryable.Where(new ActiveRegisters<T>());
         }
     }
 }

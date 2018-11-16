@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using LinqSpecs;
+using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using NetCoreMongo.Web.Data.Context;
 using NetCoreMongo.Web.Domain.Users;
 using NetCoreMongo.Web.Domain.Users.Models;
 using NetCoreMongo.Web.Domain.Users.Repository;
-using NetCoreMongo.Web.Shared;
 using NetCoreMongo.Web.Shared.Extensions;
-using NetCoreMongo.Web.Shared.Specifications;
 
 namespace NetCoreMongo.Web.Data.Repositories
 {
@@ -19,7 +17,7 @@ namespace NetCoreMongo.Web.Data.Repositories
     {
         #region Fields
 
-        private readonly UsersContext _usersContext;
+        private readonly IMongoCollection<User> _users;
 
         #endregion
 
@@ -27,27 +25,26 @@ namespace NetCoreMongo.Web.Data.Repositories
 
         public UserRepository(UsersContext usersContext)
         {
-            _usersContext = usersContext;
+            _users = usersContext.Users;
         }
 
         #endregion
 
         #region Implementations
 
-        public void CreateUser(User user)
+        public async Task CreateUser(User user)
         {
-            _usersContext.Users.InsertOne(user);
+            await _users.InsertOneAsync(user);
         }
 
-        public User GetById(string userId)
+        public async Task<User> GetById(string userId)
         {
-            var user = _usersContext.Users.AsQueryable().FirstOrDefault(x => x.Id == userId);
-            return user;
+            return await _users.AsQueryable().FirstOrDefaultAsync(x => x.Id == userId);
         }
 
-        public IEnumerable<UserItem> List(Expression<Func<User, bool>> predicate)
+        public async Task<IEnumerable<UserItem>> Find(Expression<Func<User, bool>> predicate)
         {
-            var userItem = _usersContext.Users
+            return await _users
                 .AsQueryable()
                 .ActiveRegisters()
                 .Where(predicate)
@@ -58,9 +55,7 @@ namespace NetCoreMongo.Web.Data.Repositories
                     Profission = u.Profession.Description,
                     Country = u.Country.Description
                 })
-                .ToList();
-
-            return userItem;
+                .ToListAsync();
         }
 
         #endregion
