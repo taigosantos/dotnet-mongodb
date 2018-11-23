@@ -42,8 +42,14 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 1
 
             var user1 = new User(
-                profession: professions[1],
-                country: countries[0],
+                profession: new UserProfession(
+                    id: professions[1].Id,
+                    description: professions[1].Description
+                    ),
+                country: new UserCountry(
+                    id: countries[0].Id,
+                    description: countries[0].Description
+                    ),
                 name: "Amauri Santos"
             );
 
@@ -55,8 +61,14 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 2
 
             var user2 = new User(
-                profession: professions[0],
-                country: countries[0],
+                profession: new UserProfession(
+                    id: professions[0].Id,
+                    description: professions[0].Description
+                ),
+                country: new UserCountry(
+                    id: countries[0].Id,
+                    description: countries[0].Description
+                ),
                 name: "Alan Santos"
             );
 
@@ -65,8 +77,14 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 3
 
             var user3 = new User(
-                profession: professions[1],
-                country: countries[1],
+                profession: new UserProfession(
+                    id: professions[1].Id,
+                    description: professions[1].Description
+                ),
+                country: new UserCountry(
+                    id: countries[1].Id,
+                    description: countries[0].Description
+                ),
                 name: "Roberto Justo"
             );
 
@@ -75,8 +93,14 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 4
 
             var user4 = new User(
-                profession: professions[2],
-                country: countries[1],
+                profession: new UserProfession(
+                    id: professions[2].Id,
+                    description: professions[2].Description
+                ),
+                country: new UserCountry(
+                    id: countries[1].Id,
+                    description: countries[1].Description
+                ),
                 name: "Josi Reis"
             );
 
@@ -85,8 +109,14 @@ namespace NetCoreMongo.Web.Data.Seed
             // USER 5
 
             var user5 = new User(
-                profession: professions[2],
-                country: countries[1],
+                profession: new UserProfession(
+                    id: professions[2].Id,
+                    description: professions[2].Description
+                ),
+                country: new UserCountry(
+                    id: countries[1].Id,
+                    description: countries[1].Description
+                ),
                 name: "Removed User"
             );
 

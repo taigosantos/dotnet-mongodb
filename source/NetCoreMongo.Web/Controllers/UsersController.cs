@@ -48,11 +48,11 @@ namespace NetCoreMongo.Web.Controllers
 
             var user = new User(
                 name: createUser.Name,
-                profession: new Profession(
+                profession: new UserProfession(
                     id: createUser.ProfessionId,
                     description: createUser.Profession
-                ),
-                country: new Country(
+                ), 
+                country: new UserCountry(
                     id: createUser.CountryId,
                     description: createUser.Country
                 )
