@@ -83,7 +83,7 @@ namespace NetCoreMongo.Web.Data.Seed
                 ),
                 country: new UserCountry(
                     id: countries[1].Id,
-                    description: countries[0].Description
+                    description: countries[1].Description
                 ),
                 name: "Roberto Justo"
             );
