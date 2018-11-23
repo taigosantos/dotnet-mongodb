@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using NetCoreMongo.Web.Domain.Countries;
-using NetCoreMongo.Web.Domain.Professions;
 using NetCoreMongo.Web.Shared;
 
 namespace NetCoreMongo.Web.Domain.Users
@@ -11,7 +9,11 @@ namespace NetCoreMongo.Web.Domain.Users
 
         private List<UserEmail> _emails = new List<UserEmail>();
 
-        public User(string name, Profession profession, Country country, string id = null)
+        #endregion
+
+        #region Constructors
+
+        public User(string name, UserProfession profession, UserCountry country, string id = null)
             : base(id)
         {
             Name = name;
@@ -21,24 +23,18 @@ namespace NetCoreMongo.Web.Domain.Users
 
         #endregion
 
-        #region Constructors
-
-
-
-        #endregion
-
         #region Properties
 
         public string Name { get; private set; }
-        public Profession Profession { get; private set; }
-        public Country Country { get; private set; }
+        public UserProfession Profession { get; private set; }
+        public UserCountry Country { get; private set; }
         public IReadOnlyList<UserEmail> Emails => _emails.AsReadOnly();
 
         #endregion
 
         #region Public Methods
 
-        public void Update(string name, Profession profession, Country country)
+        public void Update(string name, UserProfession profession, UserCountry country)
         {
             Name = name;
             Profession = profession;
@@ -53,7 +49,5 @@ namespace NetCoreMongo.Web.Domain.Users
         }
 
         #endregion
-
-        
     }
 }

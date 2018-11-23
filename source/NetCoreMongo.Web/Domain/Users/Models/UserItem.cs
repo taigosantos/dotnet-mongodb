@@ -6,7 +6,7 @@
 
         public string Id { get; internal set; }
         public string Name { get; internal set; }
-        public string Profission { get; internal set; }
+        public string Profession { get; internal set; }
         public string Country { get; internal set; }
 
         #endregion

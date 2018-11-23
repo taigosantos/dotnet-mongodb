@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using MongoDB.Driver;
@@ -52,7 +51,7 @@ namespace NetCoreMongo.Web.Data.Repositories
                 {
                     Id = u.Id,
                     Name = u.Name,
-                    Profission = u.Profession.Description,
+                    Profession = u.Profession.Description,
                     Country = u.Country.Description
                 })
                 .ToListAsync();

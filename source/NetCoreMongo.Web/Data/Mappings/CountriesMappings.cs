@@ -9,10 +9,7 @@ namespace NetCoreMongo.Web.Data.Mappings
 
         public static void RegisterCountriesMappings()
         {
-            BsonClassMap.RegisterClassMap<Country>(map =>
-            {
-                map.AutoMap();
-            });
+            BsonClassMap.RegisterClassMap<Country>(map => { map.AutoMap(); });
         }
 
         #endregion

@@ -2,7 +2,6 @@
 using System.Linq.Expressions;
 using LinqSpecs;
 using NetCoreMongo.Web.Domain.Users.Specifications;
-using NetCoreMongo.Web.Shared;
 
 namespace NetCoreMongo.Web.Domain.Users.Models
 {
@@ -31,6 +30,7 @@ namespace NetCoreMongo.Web.Domain.Users.Models
             {
                 query &= new UsersFromProfession(ProfessionId);
             }
+
             return query;
         }
 

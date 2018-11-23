@@ -6,7 +6,6 @@ using NetCoreMongo.Web.Domain.Users;
 using NetCoreMongo.Web.Domain.Users.Commands;
 using NetCoreMongo.Web.Domain.Users.Models;
 using NetCoreMongo.Web.Domain.Users.Repository;
-using NetCoreMongo.Web.Domain.Users.Specifications;
 
 namespace NetCoreMongo.Web.Controllers
 {
@@ -52,12 +51,12 @@ namespace NetCoreMongo.Web.Controllers
                 profession: new Profession(
                     id: createUser.ProfessionId,
                     description: createUser.Profession
-                    ), 
+                ),
                 country: new Country(
                     id: createUser.CountryId,
                     description: createUser.Country
-                    )
-                );
+                )
+            );
 
             foreach (var email in createUser.Emails)
             {

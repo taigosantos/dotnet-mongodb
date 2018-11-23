@@ -2,7 +2,6 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Bson.Serialization.Serializers;
-using NetCoreMongo.Web.Domain.Users;
 using NetCoreMongo.Web.Shared;
 
 namespace NetCoreMongo.Web.Data.Mappings

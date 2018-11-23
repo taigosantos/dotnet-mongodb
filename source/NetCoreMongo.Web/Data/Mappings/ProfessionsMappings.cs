@@ -9,10 +9,7 @@ namespace NetCoreMongo.Web.Data.Mappings
 
         public static void RegisterProfessionsMappings()
         {
-            BsonClassMap.RegisterClassMap<Profession>(map =>
-            {
-                map.AutoMap();
-            });
+            BsonClassMap.RegisterClassMap<Profession>(map => { map.AutoMap(); });
         }
 
         #endregion
